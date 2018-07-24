@@ -10,16 +10,14 @@ function countIdenticalPairs(array) {
     foundAll[item] = (foundAll[item] || 0) + 1
   })
   return havePair.reduce((acc, key) =>
-  acc + sumN(foundAll[key]), 0)
+    acc + sumN(foundAll[key]), 0)
 }
 
 
 function sumN(n) {
-  let sum = 0
-  for(let i = 1; i < n; i++) {
-    sum += i
-  }
-  return sum
+  return n < 2
+    ? 0
+    : n * (n-1) / 2
 }
 
 module.exports = { countIdenticalPairs }
